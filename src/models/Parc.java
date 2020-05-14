@@ -1,3 +1,4 @@
+package models;
 
 import java.util.*;
 
@@ -54,11 +55,11 @@ public class Parc {
     	
     	
     }
-    public void ajoutClient(Date dateI, long numCarte, long numTel,int Id,String Nom, String prenom, String ad, Date dateN) {
+   /* public void ajoutClient(Date dateI, long numCarte, long numTel,int Id,String Nom, String prenom, String ad, Date dateN) {
     	
     	listClients.add(new Clients( new Date(10,05,2020),0102030405,02154,001, "Danko", "Konate", "1 rue jules Valles" ,new Date(10,01,1996)));
     }
-    
+    */
 
 
     /**

@@ -1,3 +1,4 @@
+package models;
 
 import java.util.*;
 
@@ -17,7 +18,7 @@ public class Employer extends Personnes {
     	employer= new ArrayList<Location>();
     }
     public void AffichEmp() {
-    	System.out.println("les information sur les Employer" + dateE+ fonction+ salaire+ Id+ Nom+ prenom+ ad+ dateN );
+    	System.out.println("les information sur les Employer" + dateE+ fonction+ salaire+ IdPersonne+ Nom+ prenom+ ad+ dateN );
     }
 
     /**

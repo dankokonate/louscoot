@@ -1,5 +1,8 @@
 import java.util.*;
 
+import models.Parc;
+import models.Saisie;
+
 public class Menu {
 	
 	public static void AfficheMenu() {
