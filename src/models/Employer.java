@@ -10,23 +10,38 @@ public class Employer extends Personnes {
     /**
      * Default constructor
      */
-    public Employer(Date dateE, String fonction, float salaire,int Id,String Nom, String prenom, String ad, Date dateN) {
-    	super(Id,Nom,prenom,ad,dateN);
+    public Employer(int IdEmployer,Date dateE, String fonction, float salaire,String Nom, String prenom, String ad, Date dateN) {
+    	super(Nom,prenom,ad,dateN);
     	this.dateE=dateE;
     	this.fonction=fonction;
     	this.salaire=salaire;
-    	employer= new ArrayList<Location>();
+    	locations= new ArrayList<Location>();
     }
-    public void AffichEmp() {
-    	System.out.println("les information sur les Employer" + dateE+ fonction+ salaire+ IdPersonne+ Nom+ prenom+ ad+ dateN );
-    }
+    
+    public Employer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
 
     /**
      * 
      */
-    public Date dateE;
+    public int IdEmployer;
+    
+    public int getIdEmployer() {
+		return IdEmployer;
+	}
 
-    /**
+	public void setIdEmployer(int idEmployer) {
+		IdEmployer = idEmployer;
+	}
+
+
+	public Date dateE;
+
+
+	/**
      * 
      */
     public String fonction;
@@ -39,6 +54,44 @@ public class Employer extends Personnes {
     /**
      * 
      */
-    public ArrayList<Location> employer;
+    public ArrayList<Location> locations;
+
+	public Date getDateE() {
+		return dateE;
+	}
+
+	public void setDateE(Date dateE) {
+		this.dateE = dateE;
+	}
+
+	public String getFonction() {
+		return fonction;
+	}
+
+	public void setFonction(String fonction) {
+		this.fonction = fonction;
+	}
+
+	public float getSalaire() {
+		return salaire;
+	}
+
+	public void setSalaire(float salaire) {
+		this.salaire = salaire;
+	}
+
+	public ArrayList<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocation(ArrayList<Location> locations) {
+		this.locations = locations;
+	}
+
+	@Override
+	public String toString() {
+		return "Employer [dateE=" + dateE + ", fonction=" + fonction + ", salaire=" + salaire + ", employer=" + locations
+				+ "]";
+	}
 
 }

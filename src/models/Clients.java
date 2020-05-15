@@ -10,25 +10,27 @@ public class Clients extends Personnes {
     /**
      * Default constructor
      */
-    public Clients(int Id, Date dateI, long numCarte, String numTel,String Nom, String prenom, String ad, Date dateN) {
-    	super(Id,Nom,prenom,ad,dateN);
-    	this.dateI=dateI;
+    public Clients( int idClient, String numCarte, String numTel,String Nom, String prenom, String ad, Date dateN) {
+    	super(Nom,prenom,ad,dateN);
+    	
     	this.numCarte=numCarte;
     	this.numTel=numTel;
+    	this.idClient=idClient;
     	listLocation=new ArrayList<Location>();
-    	
+    	this.setDateI(new Date());
     }
     
     
     public Clients() {
     	this.setIdClient((int) new java.util.Date().getTime());
+    	this.setDateI(new Date());
     }
 
 
-	public void affichClient() {
+	/*public void affichClient() {
     	System.out.println("les informations du clients" +dateI+ numCarte+ numTel+ idClient+ Nom+ prenom+ ad+ dateN);
     	
-    }
+    }*/
     
     private int idClient;
 
@@ -40,7 +42,7 @@ public class Clients extends Personnes {
     /**
      * 
      */
-    private long numCarte;
+    private String numCarte;
 
     /**
      * 
@@ -65,12 +67,12 @@ public class Clients extends Personnes {
 		this.dateI = date;
 	}
 	
-	public long getNumCarte() {
+	public String getNumCarte() {
 		return numCarte;
 	}
 	
-	public void setNumCarte(long numCarte) {
-		this.numCarte = numCarte;
+	public void setNumCarte(String string) {
+		this.numCarte = string;
 	}
 	
 	public String getNumTel() {
@@ -109,7 +111,7 @@ public class Clients extends Personnes {
 	@Override
 	public String toString() {
 		return "Clients [idClient=" + idClient + ", dateI=" + dateI + ", numCarte=" + numCarte + ", numTel=" + numTel
-				+ ", lice=" + lice + ", listLocation=" + listLocation + "]";
+				+ ", lice=" + lice + ", listLocation=" + listLocation + ", nom= "+getNom()+", prenom= "+ getPrenom()+", adresse= "+getAd()+", dateN="+getDateN()+"]";
 	}
     
 

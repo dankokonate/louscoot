@@ -10,8 +10,7 @@ public class Personnes {
     /**
      * Default constructor
      */
-    public Personnes(int IdPersonne,String Nom, String prenom, String ad, Date dateN) {
-    	this.IdPersonne=IdPersonne;
+    public Personnes(String Nom, String prenom, String ad, Date dateN) {
     	this.Nom=Nom;
     	this.prenom=prenom;
     	this.ad=ad;
@@ -20,35 +19,31 @@ public class Personnes {
     
     public Personnes() {
 		super();
-		this.setIdPersonne((int) new java.util.Date().getTime());
-		}
-
-	/**
-     * 
-     */
-    public int IdPersonne;
-
-    /**
-     * 
-     */
-    public String Nom;
-
-    /**
-     * 
-     */
-    public String prenom;
-
-    /**
-     * 
-     */
-    public String ad;
-
-    /**
-     * 
-     */
-    public Date dateN;
+		//this.setIdPersonne((int) new java.util.Date().getTime());
+	}
     
-    public int getIdPersonne() {
+
+    /**
+     * 
+     */
+    private String Nom;
+
+    /**
+     * 
+     */
+    private String prenom;
+
+    /**
+     * 
+     */
+    private String ad;
+
+    /**
+     * 
+     */
+    private Date dateN;
+    
+   /* public int getIdPersonne() {
 		return IdPersonne;
 	}
 
@@ -56,7 +51,7 @@ public class Personnes {
 
 	public void setIdPersonne(int id) {
 		IdPersonne = id;
-	}
+	}*/
 
 	public String getNom() {
 		return Nom;
@@ -88,6 +83,12 @@ public class Personnes {
 
 	public void setDateN(Date dateN) {
 		this.dateN = dateN;
+	}
+
+	@Override
+	public String toString() {
+		return "Personnes [ Nom=" + Nom + ", prenom=" + prenom + ", ad=" + ad + ", dateN="
+				+ dateN + "]";
 	}
 
     
