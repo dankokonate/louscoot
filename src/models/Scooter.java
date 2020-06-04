@@ -2,6 +2,8 @@ package models;
 import java.io.Serializable;
 import java.util.*;
 
+
+
 /**
  * 
  */
@@ -22,6 +24,10 @@ public class Scooter implements Serializable {
     	
     	
     	listLocation= new ArrayList<Location>(); 
+    	
+    }
+    
+    public Scooter() {
     	listScooter= new ArrayList<Scooter>();
     }
     
@@ -44,16 +50,45 @@ public boolean disponible(Date deb, Date fin) {
     	return disponible;
     }
 
-
-public Scooter addScoot(Scooter Scoot) {
+public static Scooter addScoot(Scooter Scoot) {
 	listScooter.add(Scoot);
 	return Scoot;
 }
 
 public void affichScoot() {
 	for (int i=0; i<listScooter.size(); i++) {
-		System.out.print(listScooter.get(i));
+		System.out.print(i+1+": "+listScooter.get(i).toString()+"\n");
 	}
+}
+public Scooter FindById(int id) {
+	Scooter scooter= new Scooter();
+	for (int i=0; i<listScooter.size(); i++) {
+		if(listScooter.get(i).getIdScoot()==id) {
+			scooter = listScooter.get(id);
+		}
+	}
+	 return scooter.getIdScoot()==0?null:scooter;
+}
+
+public boolean suppClient(int id)   {
+	for (int i=0; i<listScooter.size(); i++) {
+		if(listScooter.get(i).getIdScoot()==id) {
+			listScooter.remove(id);
+			return true;
+		}
+	}
+	return false;
+
+}
+
+public Scooter modifClients(Scooter scooter ) {
+	for (int i=0; i<listScooter.size(); i++) {
+		if(listScooter.get(i).getIdScoot()==scooter.getIdScoot()) {
+			listScooter.set(i, scooter);
+			return scooter;
+		}
+	}
+	return null;
 }
 
 

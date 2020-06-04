@@ -16,6 +16,7 @@ int nbJourLoc=0;
     /**
      * Default constructor
      */
+
     public Location(int NumContrat, Date dateLoc, Date dateRe,int kiloAv, int kiloAp, float prix) {
     	this.NumContrat=NumContrat;
     	this.dateLoc=dateLoc;
@@ -24,10 +25,11 @@ int nbJourLoc=0;
     	this.kiloAp=kiloAp;
     	this.prix=prix;
     }
-    public void AffichLoc() {
-    	System.out.println("les informations sur la Location:"+ NumContrat+ dateLoc+ dateRe+ kiloAv+ kiloAp+ prix);
+    
+    public Location() {
     	
     }
+    
     
     public float CalculPrix(Date dateLoc, Date dateRe) {
     	
@@ -78,8 +80,97 @@ int nbJourLoc=0;
      * 
      */
     public Employer Employerlocation;
+    
+    public ArrayList<Location> listLocation;
+    public int getNbJourLoc() {
+		return nbJourLoc;
+	}
 
-    /**
+	public void setNbJourLoc(int nbJourLoc) {
+		this.nbJourLoc = nbJourLoc;
+	}
+
+	public int getNumContrat() {
+		return NumContrat;
+	}
+
+	public void setNumContrat(int numContrat) {
+		NumContrat = numContrat;
+	}
+
+	public Date getDateLoc() {
+		return dateLoc;
+	}
+
+	public void setDateLoc(Date dateLoc) {
+		this.dateLoc = dateLoc;
+	}
+
+	public Date getDateRe() {
+		return dateRe;
+	}
+
+	public void setDateRe(Date dateRe) {
+		this.dateRe = dateRe;
+	}
+
+	public int getKiloAv() {
+		return kiloAv;
+	}
+
+	public void setKiloAv(int kiloAv) {
+		this.kiloAv = kiloAv;
+	}
+
+	public int getKiloAp() {
+		return kiloAp;
+	}
+
+	public void setKiloAp(int kiloAp) {
+		this.kiloAp = kiloAp;
+	}
+
+	public float getPrix() {
+		return prix;
+	}
+
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
+
+	public Clients getClientlocation() {
+		return clientlocation;
+	}
+
+	public void setClientlocation(Clients clientlocation) {
+		this.clientlocation = clientlocation;
+	}
+
+	public Scooter getScooterlocation() {
+		return Scooterlocation;
+	}
+
+	public void setScooterlocation(Scooter scooterlocation) {
+		Scooterlocation = scooterlocation;
+	}
+
+	public Employer getEmployerlocation() {
+		return Employerlocation;
+	}
+
+	public void setEmployerlocation(Employer employerlocation) {
+		Employerlocation = employerlocation;
+	}
+
+	public ArrayList<Location> getListLocation() {
+		return listLocation;
+	}
+
+	public void setListLocation(ArrayList<Location> listLocation) {
+		this.listLocation = listLocation;
+	}
+
+	/**
      * @param int Id_scoot 
      * @param int Id_pers 
      * @param Date dateLoc 
@@ -87,8 +178,13 @@ int nbJourLoc=0;
      * @param Double prix 
      * @param int contrat
      */
-    public  void location( int Id_scoot, int Id_pers, Date dateLoc,  Date dateRe,  Double prix,  int contrat) {
-        // TODO implement here
-    }
+	@Override
+	public String toString() {
+		return "Location [nbJourLoc=" + nbJourLoc + ", NumContrat=" + NumContrat + ", dateLoc=" + dateLoc + ", dateRe="
+				+ dateRe + ", kiloAv=" + kiloAv + ", kiloAp=" + kiloAp + ", prix=" + prix + ", clientlocation="
+				+ clientlocation + ", Scooterlocation=" + Scooterlocation + ", Employerlocation=" + Employerlocation
+				+ ", listLocation=" + listLocation + "]";
+	}
+   
 
 }

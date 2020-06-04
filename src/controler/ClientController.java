@@ -29,7 +29,7 @@ public class ClientController {
 			System.out.println(c.toString()+"\n");
 		});*/
 		for (int i=0; i<listClients.size(); i++) {
-			System.out.print(listClients.get(i));
+			System.out.print(i+1+": "+listClients.get(i).toString()+"\n");
 		}
 	}
 	

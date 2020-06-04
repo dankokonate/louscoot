@@ -1,20 +1,27 @@
 package tools;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateTools {
 	private int j;
 	private int m;
 	private int a;
+	
 	public DateTools() {
-		
 	}
 	
 	public DateTools(int j, int m, int a) {
 		this.j=j;
 		this.m=m;
 		this.a=a;
+	}
+	
+	public Date getDate() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(this.a, this.m, this.j);
+		return cal.getTime();
 	}
 	
 	public boolean after(Date dateLoc) {
