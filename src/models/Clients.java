@@ -1,13 +1,19 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Clients extends Personnes {
+public class Clients extends Personnes implements Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Default constructor
      */
     public Clients( int idClient, String numCarte, String numTel,String Nom, String prenom, String ad, Date dateN) {
@@ -22,7 +28,7 @@ public class Clients extends Personnes {
     
     
     public Clients() {
-    	this.setIdClient((int) new java.util.Date().getTime());
+    	//this.setIdClient((int) new java.util.Date().getTime());
     	this.setDateI(new Date());
     }
 
@@ -58,6 +64,7 @@ public class Clients extends Personnes {
      * 
      */
     public ArrayList<Location> listLocation;
+    public ArrayList<Clients> listClients;
 
 	public Date getDateI() {
 		return dateI;

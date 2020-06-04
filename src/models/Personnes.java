@@ -1,13 +1,19 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Personnes {
+public class Personnes implements Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Default constructor
      */
     public Personnes(String Nom, String prenom, String ad, Date dateN) {

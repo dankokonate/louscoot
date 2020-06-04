@@ -1,11 +1,17 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Location {
+public class Location implements Serializable {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 int nbJourLoc=0;
     /**
      * Default constructor

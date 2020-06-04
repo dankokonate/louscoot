@@ -1,13 +1,19 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Moteur extends Scooter {
+public class Moteur extends Scooter implements Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Default constructor
      */
     public Moteur(int capaciteR ,int IdScoot, int kilometre, String Etat, Model Mscooter, Marque MarqScooter) {

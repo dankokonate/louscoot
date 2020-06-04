@@ -1,12 +1,17 @@
 package models;
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Scooter {
+public class Scooter implements Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Default constructor
      */
     public Scooter( int IdScoot, int kilometre, String Etat, Model Mscooter, Marque MarqScooter) {
@@ -19,6 +24,8 @@ public class Scooter {
     	listLocation= new ArrayList<Location>(); 
     	listScooter= new ArrayList<Scooter>();
     }
+    
+    
 
 public boolean disponible(Date deb, Date fin) {
     	boolean disponible= true;
@@ -37,24 +44,20 @@ public boolean disponible(Date deb, Date fin) {
     	return disponible;
     }
 
-// CREATION DE MA BASE DE DONNEE//
 
-public static ArrayList<Scooter> getScooter(){
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot10",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot20",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot30",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot40",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot50",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot60",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot70",220), new Marque("pegeot")));
-	listScooter.add(new Scooter(12,150,"Normal",new Model("pegeot80",220), new Marque("pegeot")));
-
-	return listScooter;
-	
-}
-public void ajoutScoot(Scooter Scoot) {
+public Scooter addScoot(Scooter Scoot) {
 	listScooter.add(Scoot);
+	return Scoot;
 }
+
+public void affichScoot() {
+	for (int i=0; i<listScooter.size(); i++) {
+		System.out.print(listScooter.get(i));
+	}
+}
+
+
+
 public void Setparc(Parc p) {
 	
 	Pscooter= p;
@@ -90,5 +93,96 @@ public void Setparc(Parc p) {
      */
     public ArrayList<Location> listLocation;
     public static ArrayList<Scooter>listScooter;
+
+public int getIdScoot() {
+	return IdScoot;
+}
+
+
+
+public void setIdScoot(int idScoot) {
+	IdScoot = idScoot;
+}
+
+
+
+public int getKilometre() {
+	return kilometre;
+}
+
+
+
+public void setKilometre(int kilometre) {
+	this.kilometre = kilometre;
+}
+
+
+
+public String getEtat() {
+	return Etat;
+}
+
+
+
+public void setEtat(String etat) {
+	Etat = etat;
+}
+
+
+
+public Parc getPscooter() {
+	return Pscooter;
+}
+
+
+
+public void setPscooter(Parc pscooter) {
+	Pscooter = pscooter;
+}
+
+
+
+public Model getMscooter() {
+	return Mscooter;
+}
+
+
+
+public void setMscooter(Model mscooter) {
+	Mscooter = mscooter;
+}
+
+
+
+public ArrayList<Location> getListLocation() {
+	return listLocation;
+}
+
+
+
+public void setListLocation(ArrayList<Location> listLocation) {
+	this.listLocation = listLocation;
+}
+
+
+
+public static ArrayList<Scooter> getListScooter() {
+	return listScooter;
+}
+
+
+
+public static void setListScooter(ArrayList<Scooter> listScooter) {
+	Scooter.listScooter = listScooter;
+}
+
+
+
+@Override
+public String toString() {
+	return "Scooter [IdScoot=" + IdScoot + ", kilometre=" + kilometre + ", Etat=" + Etat + ", Pscooter=" + Pscooter
+			+ ", Mscooter=" + Mscooter + ", listLocation=" + listLocation + "]";
+}
+
 
 }

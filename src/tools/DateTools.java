@@ -8,6 +8,7 @@ public class DateTools {
 	private int m;
 	private int a;
 	public DateTools() {
+		
 	}
 	
 	public DateTools(int j, int m, int a) {

@@ -1,11 +1,17 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Licence {
+public class Licence implements Serializable {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 int nbJourLoc;
     /**
      * Default constructor

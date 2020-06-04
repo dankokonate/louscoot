@@ -1,13 +1,19 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Employer extends Personnes {
+public class Employer extends Personnes implements Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Default constructor
      */
     public Employer(int IdEmployer,Date dateE, String fonction, float salaire,String Nom, String prenom, String ad, Date dateN) {
@@ -15,7 +21,8 @@ public class Employer extends Personnes {
     	this.dateE=dateE;
     	this.fonction=fonction;
     	this.salaire=salaire;
-    	locations= new ArrayList<Location>();
+    	listLocations= new ArrayList<Location>();
+    	listEmployer= new ArrayList<Employer>();
     }
     
     public Employer() {
@@ -54,7 +61,8 @@ public class Employer extends Personnes {
     /**
      * 
      */
-    public ArrayList<Location> locations;
+    public ArrayList<Location> listLocations;
+    public ArrayList<Employer> listEmployer;
 
 	public Date getDateE() {
 		return dateE;
@@ -81,16 +89,16 @@ public class Employer extends Personnes {
 	}
 
 	public ArrayList<Location> getLocations() {
-		return locations;
+		return listLocations;
 	}
 
 	public void setLocation(ArrayList<Location> locations) {
-		this.locations = locations;
+		this.listLocations = locations;
 	}
 
 	@Override
 	public String toString() {
-		return "Employer [dateE=" + dateE + ", fonction=" + fonction + ", salaire=" + salaire + ", employer=" + locations
+		return "Employer [dateE=" + dateE + ", fonction=" + fonction + ", salaire=" + salaire + ", employer=" + listLocations
 				+ "]";
 	}
 

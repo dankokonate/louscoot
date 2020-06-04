@@ -1,9 +1,17 @@
 package controler;
 
+import java.util.ArrayList;
+
 import models.Clients;
 import tools.DataBase;
 public class ClientController {
 	
+	private ArrayList<Clients> listClients;
+	
+	public ClientController() {
+		// TODO Auto-generated constructor stub
+		this.listClients = new ArrayList<Clients>();
+	}
 	
 	/**
 	 * 
@@ -11,14 +19,18 @@ public class ClientController {
 	 * @return
 	 */
 	public Clients addClient(Clients client) {
-		DataBase.clientDB.put(client.getIdClient(),client);
+		//DataBase.clientDB.put(client.getIdClient(),client);
+		listClients.add(client);
 		return client;
 	}
 	
 	public void affichClient() {   // entrySet= cle 
-		DataBase.clientDB.entrySet().forEach(c->{
+		/*DataBase.clientDB.entrySet().forEach(c->{
 			System.out.println(c.toString()+"\n");
-		});
+		});*/
+		for (int i=0; i<listClients.size(); i++) {
+			System.out.print(listClients.get(i));
+		}
 	}
 	
 	public Clients findById(int id) {
@@ -27,22 +39,53 @@ public class ClientController {
 			client=clientDB.get(id);
 		else client= null;*/
 		
-		return (DataBase.clientDB.containsKey(id))?DataBase.clientDB.get(id):null;
+		//return (DataBase.clientDB.containsKey(id))?DataBase.clientDB.get(id):null;
+		Clients clients = new Clients();
+		
+		for (int i=0; i<listClients.size(); i++) {
+			if(listClients.get(i).getIdClient()==id) {
+				clients = listClients.get(id);
+			}
+		}
+		 return clients.getIdClient()==0?null:clients;
+		/*
+		listClients.forEach(clt->{
+			if(clt.getIdClient() == id) {
+				System.out.print(clt.toString());
+			}
+		});
+		System.out.print("N'existe pas");*/
 	}
 	
-	public void suppClient(int id) throws Exception  {
-		if(DataBase.clientDB.containsKey(id)) DataBase.clientDB.remove(id);
+	public boolean suppClient(int id)   {
+		/*if(DataBase.clientDB.containsKey(id)) DataBase.clientDB.remove(id);
 		else throw new Exception("Client non trouvé");
-		
+		*/
+		for (int i=0; i<listClients.size(); i++) {
+			if(listClients.get(i).getIdClient()==id) {
+				listClients.remove(id);
+				return true;
+			}
+		}
+		return false;
 		
 	}
-	public void modifClients(Clients client ) throws Exception {
-		Clients clt = findById(client.getIdClient());
+	
+	public Clients modifClients(Clients client ) {
+		/*Clients clt = findById(client.getIdClient());
 		if( clt!= null) {
 			DataBase.clientDB.replace(clt.getIdClient(), client);
 		}else {
 			throw new Exception("Client non trouvé");
+		}*/
+		
+		for (int i=0; i<listClients.size(); i++) {
+			if(listClients.get(i).getIdClient()==client.getIdClient()) {
+				listClients.set(i, client);
+				return client;
+			}
 		}
+		return null;
 	}
 	
 
