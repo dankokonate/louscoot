@@ -49,6 +49,12 @@ public class Model implements Serializable {
      */
     public Licence listmodel;
 
+	@Override
+	public String toString() {
+		return "Model [nomModel=" + nomModel + ", puissance=" + puissance + ", Marquemodel=" + Marquemodel
+				+ ", listScooter=" + listScooter + ", listmodel=" + listmodel + "]";
+	}
+
     /**
      * @param String nom 
      * @param int puissance

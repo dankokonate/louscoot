@@ -6,7 +6,7 @@ import models.Clients;
 import tools.DataBase;
 public class ClientController {
 	
-	private ArrayList<Clients> listClients;
+	private static ArrayList<Clients> listClients;
 	
 	public ClientController() {
 		// TODO Auto-generated constructor stub
@@ -34,17 +34,11 @@ public class ClientController {
 	}
 	
 	public Clients findById(int id) {
-		/*Clients client = new Clients();
-		if(clientDB.containsKey(id))
-			client=clientDB.get(id);
-		else client= null;*/
-		
-		//return (DataBase.clientDB.containsKey(id))?DataBase.clientDB.get(id):null;
 		Clients clients = new Clients();
 		
 		for (int i=0; i<listClients.size(); i++) {
 			if(listClients.get(i).getIdClient()==id) {
-				clients = listClients.get(id);
+				clients = listClients.get(i);
 			}
 		}
 		 return clients.getIdClient()==0?null:clients;
@@ -63,7 +57,7 @@ public class ClientController {
 		*/
 		for (int i=0; i<listClients.size(); i++) {
 			if(listClients.get(i).getIdClient()==id) {
-				listClients.remove(id);
+				listClients.remove(i);
 				return true;
 			}
 		}
@@ -86,6 +80,10 @@ public class ClientController {
 			}
 		}
 		return null;
+	}
+	
+	public int getNbClient() {
+		return listClients.size();
 	}
 	
 

@@ -17,17 +17,17 @@ int nbJourLoc=0;
      * Default constructor
      */
 
-    public Location(int NumContrat, Date dateLoc, Date dateRe,int kiloAv, int kiloAp, float prix) {
+    public Location(int NumContrat, Date dateLoc, Date dateRe,int kiloAv, float prix) {
     	this.NumContrat=NumContrat;
     	this.dateLoc=dateLoc;
     	this.dateRe=dateRe;
     	this.kiloAv=kiloAv;
-    	this.kiloAp=kiloAp;
     	this.prix=prix;
+    	this.isreturned = false;
     }
     
     public Location() {
-    	
+    	this.isreturned = false;
     }
     
     
@@ -35,6 +35,8 @@ int nbJourLoc=0;
     	
     	return(prix);
     }
+    
+    public boolean isreturned;
 
     /**
      * 
@@ -170,6 +172,22 @@ int nbJourLoc=0;
 		this.listLocation = listLocation;
 	}
 
+	public boolean isIsreturned() {
+		return isreturned;
+	}
+
+	public void setIsreturned(boolean isreturned) {
+		this.isreturned = isreturned;
+	}
+	
+	/**
+     * 
+     */
+    public float getMontantAPayer() {
+    	float distance = this.kiloAp - this.kiloAv;
+    	return (this.kiloAp==0)?0:this.prix * distance;
+    };
+
 	/**
      * @param int Id_scoot 
      * @param int Id_pers 
@@ -181,9 +199,7 @@ int nbJourLoc=0;
 	@Override
 	public String toString() {
 		return "Location [nbJourLoc=" + nbJourLoc + ", NumContrat=" + NumContrat + ", dateLoc=" + dateLoc + ", dateRe="
-				+ dateRe + ", kiloAv=" + kiloAv + ", kiloAp=" + kiloAp + ", prix=" + prix + ", clientlocation="
-				+ clientlocation + ", Scooterlocation=" + Scooterlocation + ", Employerlocation=" + Employerlocation
-				+ ", listLocation=" + listLocation + "]";
+				+ dateRe + ", kiloAv=" + kiloAv + ", kiloAp=" + kiloAp + ", prix=" + prix + " Montant= "+getMontantAPayer()+" ]";
 	}
    
 

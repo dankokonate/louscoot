@@ -15,7 +15,7 @@ public class Electrique extends Scooter implements Serializable {
 	/**
      * Default constructor
      */
-    public Electrique (int autonomie,int IdScoot, int kilometre, String Etat, int nbScoot,Model Mscooter, Marque MarqScooter) {
+    public Electrique (int autonomie,int IdScoot, int kilometre, boolean Etat, int nbScoot,Model Mscooter, Marque MarqScooter) {
     	super(IdScoot, kilometre, Etat,Mscooter,MarqScooter);
     	this.autonomie=autonomie;
     	listScooterE= new ArrayList<Electrique>();
